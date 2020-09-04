@@ -53,6 +53,7 @@
             this.maskedTextBoxGradus = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBoxClose = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
@@ -63,8 +64,9 @@
             // 
             // chart
             // 
-            this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.Name = "ChartArea1";
             this.chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -288,12 +290,24 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.checkBoxClose);
             this.panel3.Controls.Add(this.numericUpDown);
             this.panel3.Controls.Add(this.dataGridView);
             this.panel3.Location = new System.Drawing.Point(860, 69);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(314, 185);
             this.panel3.TabIndex = 14;
+            // 
+            // checkBoxClose
+            // 
+            this.checkBoxClose.AutoSize = true;
+            this.checkBoxClose.Location = new System.Drawing.Point(203, 5);
+            this.checkBoxClose.Name = "checkBoxClose";
+            this.checkBoxClose.Size = new System.Drawing.Size(108, 24);
+            this.checkBoxClose.TabIndex = 6;
+            this.checkBoxClose.Text = "Замкнуть";
+            this.checkBoxClose.UseVisualStyleBackColor = true;
             // 
             // Graphic
             // 
@@ -321,6 +335,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,6 +363,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn X;
         private System.Windows.Forms.DataGridViewTextBoxColumn Y;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.CheckBox checkBoxClose;
     }
 }
 

@@ -20,8 +20,8 @@ namespace Graphics
             figure = new List<IPoint>();
 
             dataGridView.RowCount = 1;
-            //chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            //chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             chart.ChartAreas[0].AxisX.Crossing = 0;//Ось X
             chart.ChartAreas[0].AxisY.Crossing = 0;//Ось Y
         }
@@ -36,13 +36,19 @@ namespace Graphics
             figure.Clear();
             for (int i = 0; i < dataGridView.RowCount; i++)
             {
-                if (!String.IsNullOrEmpty(dataGridView[0, i].Value.ToString()) && !String.IsNullOrEmpty(dataGridView[1, i].Value.ToString()))
+                if (dataGridView[0, i].Value != null && dataGridView[1, i].Value != null)
+                {
                     figure.Add(new Point(Convert.ToDouble(dataGridView[0, i].Value), Convert.ToDouble(dataGridView[1, i].Value)));
+                }
                 else
                 {
                     MessageBox.Show("Матрица не заполнена");
                     return;
                 }
+            }
+            if (checkBoxClose.Checked && figure.Count > 1)
+            {
+                figure.Add(new Point(Convert.ToDouble(dataGridView[0, 0].Value), Convert.ToDouble(dataGridView[1, 0].Value)));
             }
 
             if (radioButtonDefault.Checked)
@@ -100,6 +106,8 @@ namespace Graphics
         private void buttonClear_Click(object sender, EventArgs e)
         {
             chart.Series.Clear();
+            chart.Series.Add("Фигуры");
+            chart.Series.FindByName("Фигуры").ChartType = SeriesChartType.Point;
             i = -1;
         }
 
