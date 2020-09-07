@@ -28,5 +28,16 @@ namespace Graphics.Logic
             }
             return result;
         }
+
+        static public List<IPoint> Multiply3D(List<IPoint> matrix, List<IPoint> temp)
+        {
+            List<IPoint> result = new List<IPoint>();
+            for (int i = 0; i < matrix.Count; i++)
+            {
+                result.Add(new Point(matrix[i].X * temp[0].X + matrix[i].Y * temp[1].X + temp[2].X,
+                                     matrix[i].X * temp[0].Y + matrix[i].Y * temp[1].Y + temp[2].Y));
+            }
+            return result;
+        }
     }
 }

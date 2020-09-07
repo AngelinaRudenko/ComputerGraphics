@@ -62,17 +62,41 @@ namespace Graphics
                     List<IPoint> fig = new List<IPoint>();
                     if (radioButtonOX.Checked)
                     {
-                        fig = Reflect.OX(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text));
+                        if (maskedTextBoxM.Text == null || maskedTextBoxN.Text == null || maskedTextBoxM.Text == "    ," || maskedTextBoxN.Text == "    ,")
+                        {
+                            fig = Reflect.OX(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text));
+                        }
+                        else
+                        {
+                            fig = Reflect.OX(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text), 
+                                Convert.ToDouble(maskedTextBoxM.Text), Convert.ToDouble(maskedTextBoxN.Text));
+                        }
                         DrawFigure(fig);
                     }
                     else if (radioButtonOY.Checked)
                     {
-                        fig = Reflect.OY(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text));
+                        if (maskedTextBoxM.Text == null || maskedTextBoxN.Text == null || maskedTextBoxM.Text == "    ," || maskedTextBoxN.Text == "    ,")
+                        {
+                            fig = Reflect.OY(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text));
+                        }
+                        else
+                        {
+                            fig = Reflect.OY(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text),
+                                Convert.ToDouble(maskedTextBoxM.Text), Convert.ToDouble(maskedTextBoxN.Text));
+                        }
                         DrawFigure(fig);
                     }
                     else //if (radioButtonXY.Checked)
                     {
-                        fig = Reflect.XY(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text));
+                        if (maskedTextBoxM.Text == null || maskedTextBoxN.Text == null || maskedTextBoxM.Text == "    ," || maskedTextBoxN.Text == "    ,")
+                        {
+                            fig = Reflect.XY(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text));
+                        }
+                        else
+                        {
+                            fig = Reflect.XY(figure, Convert.ToDouble(maskedTextBoxCoefficient.Text),
+                                Convert.ToDouble(maskedTextBoxM.Text), Convert.ToDouble(maskedTextBoxN.Text));
+                        }
                         if (fig != null)
                         {
                             DrawFigure(fig);
@@ -118,7 +142,14 @@ namespace Graphics
             foreach (IPoint point in figure)
             {
                 chart.Series[i].Points.AddXY(point.X, point.Y);
-                chart.Series[i].ChartType = SeriesChartType.Line;
+                if (checkBoxLinesThroughPoints.Checked)
+                {
+                    chart.Series[chart.Series.Count - 1].ChartType = SeriesChartType.Line;
+                }
+                else
+                {
+                    chart.Series[chart.Series.Count - 1].ChartType = SeriesChartType.Point;
+                }
                 chart.Series[i].BorderWidth = 2;
                 chart.Series[i].XValueType = ChartValueType.String;
                 chart.Series[i].IsValueShownAsLabel = true;

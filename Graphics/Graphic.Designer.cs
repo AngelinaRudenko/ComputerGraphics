@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +47,9 @@
             this.radioButtonOY = new System.Windows.Forms.RadioButton();
             this.radioButtonXY = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.maskedTextBoxN = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxM = new System.Windows.Forms.MaskedTextBox();
+            this.labelMove = new System.Windows.Forms.Label();
             this.maskedTextBoxCoefficient = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,6 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.checkBoxClose = new System.Windows.Forms.CheckBox();
+            this.checkBoxLinesThroughPoints = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
@@ -67,17 +71,33 @@
             this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Red;
+            chartArea2.AxisX.LineWidth = 3;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gray;
+            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea2.AxisX.Title = "X";
+            chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisX.ToolTip = "X";
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Red;
+            chartArea2.AxisY.LineWidth = 3;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gray;
+            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea2.AxisY.Title = "Y";
+            chartArea2.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisY.ToolTip = "Y";
+            chartArea2.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart.Legends.Add(legend2);
             this.chart.Location = new System.Drawing.Point(24, 39);
             this.chart.Name = "chart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series1.Legend = "Legend1";
-            series1.Name = "Фигуры";
-            this.chart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Legend = "Legend1";
+            series2.Name = "Фигуры";
+            this.chart.Series.Add(series2);
             this.chart.Size = new System.Drawing.Size(764, 626);
             this.chart.TabIndex = 0;
             // 
@@ -99,18 +119,18 @@
             // X
             // 
             this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.X.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.X.DefaultCellStyle = dataGridViewCellStyle3;
             this.X.HeaderText = "X";
             this.X.Name = "X";
             // 
             // Y
             // 
             this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Y.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Y.DefaultCellStyle = dataGridViewCellStyle4;
             this.Y.HeaderText = "Y";
             this.Y.Name = "Y";
             // 
@@ -228,6 +248,9 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.maskedTextBoxN);
+            this.panel1.Controls.Add(this.maskedTextBoxM);
+            this.panel1.Controls.Add(this.labelMove);
             this.panel1.Controls.Add(this.maskedTextBoxCoefficient);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.radioButtonOX);
@@ -239,12 +262,41 @@
             this.panel1.TabIndex = 12;
             this.panel1.Visible = false;
             // 
+            // maskedTextBoxN
+            // 
+            this.maskedTextBoxN.Location = new System.Drawing.Point(222, 107);
+            this.maskedTextBoxN.Mask = "####.###";
+            this.maskedTextBoxN.Name = "maskedTextBoxN";
+            this.maskedTextBoxN.Size = new System.Drawing.Size(57, 26);
+            this.maskedTextBoxN.TabIndex = 17;
+            this.maskedTextBoxN.Text = "1";
+            this.maskedTextBoxN.ValidatingType = typeof(int);
+            // 
+            // maskedTextBoxM
+            // 
+            this.maskedTextBoxM.Location = new System.Drawing.Point(159, 107);
+            this.maskedTextBoxM.Mask = "####.###";
+            this.maskedTextBoxM.Name = "maskedTextBoxM";
+            this.maskedTextBoxM.Size = new System.Drawing.Size(57, 26);
+            this.maskedTextBoxM.TabIndex = 16;
+            this.maskedTextBoxM.Text = "1";
+            this.maskedTextBoxM.ValidatingType = typeof(int);
+            // 
+            // labelMove
+            // 
+            this.labelMove.AutoSize = true;
+            this.labelMove.Location = new System.Drawing.Point(170, 84);
+            this.labelMove.Name = "labelMove";
+            this.labelMove.Size = new System.Drawing.Size(89, 20);
+            this.labelMove.TabIndex = 15;
+            this.labelMove.Text = "Смещение";
+            // 
             // maskedTextBoxCoefficient
             // 
-            this.maskedTextBoxCoefficient.Location = new System.Drawing.Point(159, 73);
+            this.maskedTextBoxCoefficient.Location = new System.Drawing.Point(159, 40);
             this.maskedTextBoxCoefficient.Mask = "####.###";
             this.maskedTextBoxCoefficient.Name = "maskedTextBoxCoefficient";
-            this.maskedTextBoxCoefficient.Size = new System.Drawing.Size(100, 26);
+            this.maskedTextBoxCoefficient.Size = new System.Drawing.Size(117, 26);
             this.maskedTextBoxCoefficient.TabIndex = 14;
             this.maskedTextBoxCoefficient.Text = "1";
             this.maskedTextBoxCoefficient.ValidatingType = typeof(int);
@@ -252,7 +304,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(155, 39);
+            this.label1.Location = new System.Drawing.Point(155, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 13;
@@ -309,12 +361,24 @@
             this.checkBoxClose.Text = "Замкнуть";
             this.checkBoxClose.UseVisualStyleBackColor = true;
             // 
+            // checkBoxLinesThroughPoints
+            // 
+            this.checkBoxLinesThroughPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxLinesThroughPoints.AutoSize = true;
+            this.checkBoxLinesThroughPoints.Location = new System.Drawing.Point(1003, 40);
+            this.checkBoxLinesThroughPoints.Name = "checkBoxLinesThroughPoints";
+            this.checkBoxLinesThroughPoints.Size = new System.Drawing.Size(171, 24);
+            this.checkBoxLinesThroughPoints.TabIndex = 7;
+            this.checkBoxLinesThroughPoints.Text = "Проводить линии";
+            this.checkBoxLinesThroughPoints.UseVisualStyleBackColor = true;
+            // 
             // Graphic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1230, 677);
+            this.Controls.Add(this.checkBoxLinesThroughPoints);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -326,7 +390,7 @@
             this.Controls.Add(this.chart);
             this.Name = "Graphic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ПР 1";
+            this.Text = "ПР 1-2";
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
@@ -364,6 +428,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Y;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.CheckBox checkBoxClose;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxN;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxM;
+        private System.Windows.Forms.Label labelMove;
+        private System.Windows.Forms.CheckBox checkBoxLinesThroughPoints;
     }
 }
 

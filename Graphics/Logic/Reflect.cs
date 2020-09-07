@@ -21,6 +21,15 @@ namespace Graphics.Logic
             return Matrix.Multiply(matrix, temp);
         }
 
+        static public List<IPoint> OX(List<IPoint> matrix, double coefficient, double m, double n)
+        {
+            List<IPoint> temp = new List<IPoint>();//Матрица, на которую будет домножаться
+            temp.Add(new Point(coefficient, 0));
+            temp.Add(new Point(0, -coefficient));
+            temp.Add(new Point(m, n));
+            return Matrix.Multiply3D(matrix, temp);
+        }
+
         //Отражение относительно оси OY
         static public IPoint[] OY(IPoint[] matrix, double coefficient)
         {
@@ -34,6 +43,15 @@ namespace Graphics.Logic
             temp.Add(new Point(-coefficient, 0));
             temp.Add(new Point(0, coefficient));
             return Matrix.Multiply(matrix, temp);
+        }
+
+        static public List<IPoint> OY(List<IPoint> matrix, double coefficient, double m, double n)
+        {
+            List<IPoint> temp = new List<IPoint>();//Матрица, на которую будет домножаться
+            temp.Add(new Point(-coefficient, 0));
+            temp.Add(new Point(0, coefficient));
+            temp.Add(new Point(m, n));
+            return Matrix.Multiply3D(matrix, temp);
         }
 
         //Определение четверти, в которой находится точка
@@ -127,6 +145,32 @@ namespace Graphics.Logic
                 temp.Add(new Point(0, coefficient));
                 temp.Add(new Point(coefficient, 0));
                 return Matrix.Multiply(matrix, temp);
+            }
+            else //Если фигура находится в нескольких четвертях
+            {
+                return null;
+            }
+        }
+
+        static public List<IPoint> XY(List<IPoint> matrix, double coefficient, double m, double n)
+        {
+            //1 и 3 четверть отражаются относительно -XY
+            //2 и 4 четверть отражаются относительно XY
+            if (FigureFourth(matrix) == 1 || FigureFourth(matrix) == 3)
+            {
+                List<IPoint> temp = new List<IPoint>();//Матрица, на которую будет домножаться
+                temp.Add(new Point(0, -coefficient));
+                temp.Add(new Point(-coefficient, 0));
+                temp.Add(new Point(m, n));
+                return Matrix.Multiply3D(matrix, temp);
+            }
+            else if (FigureFourth(matrix) == 2 || FigureFourth(matrix) == 4)
+            {
+                List<IPoint> temp = new List<IPoint>();//Матрица, на которую будет домножаться
+                temp.Add(new Point(0, coefficient));
+                temp.Add(new Point(coefficient, 0));
+                temp.Add(new Point(m, n));
+                return Matrix.Multiply3D(matrix, temp);
             }
             else //Если фигура находится в нескольких четвертях
             {
